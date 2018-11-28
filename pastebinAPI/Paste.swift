@@ -92,7 +92,7 @@ class Paste {
     
     public static func postClipboard(withFormat format: String) {
         let clipboard = Tools.getClipboardString()
-        Paste.shared.post(clipboard, format: Parameters.Formats.init(rawValue: format)) { response in
+        Paste.shared.post(clipboard, format: Parameters.Formats.init(rawValue: format.lowercased())) { response in
             print(response)
             if let url = URL(string: response) {
                 url.open()
